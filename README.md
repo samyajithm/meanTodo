@@ -151,6 +151,8 @@ A Simple MEAN.js Todo Application
 ## Demo 
 
 * [Demo](https://samyajithm.github.io/meanTodo/#/login)
+    > Demo user : abc@xyz.com / 123456
+    > **Note:** Initial delay will be there when loaded for the first time as the application is deployed in a public domain and will be shutdown due to inactivity.
 * [Postman Collection](https://documenter.getpostman.com/view/11998783/T1DpBGvM)
 
   > **# Note:** [Demo](https://samyajithm.github.io/meanTodo/#/login) instance is connected to node.js app hoisted in (https://meanTodo.glitch.me) and MongoDb hoisted in MongoDB atlas.
