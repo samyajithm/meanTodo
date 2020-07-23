@@ -1,0 +1,9 @@
+{
+  "env": {
+    "remoteDb": false,
+    "dbHost": "127.0.0.1:27017/meanTodo?retryWrites=true&w=majority",
+    "dbUserName": "",
+    "dbPassword": "",
+    "JWT_KEY": "uniquelongkey"
+  }
+}

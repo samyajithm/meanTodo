@@ -1,0 +1,21 @@
+@import 'node_modules/@angular/material/theming';
+@import "ui/styles";
+
+.sidebar {
+  height: 100%;
+  width: 200px;
+}
+
+.mat-list-base .mat-list-item {
+  color: map_get($mat-grey, A700);
+  font-size: 13px;
+
+  &.active {
+    color: map_get($meanTodo-primary, 900);
+    background-color: map_get($mat-grey, 300);
+  }
+}
+
+.sidebar-list {
+  padding: 12px 0 0 0;
+}

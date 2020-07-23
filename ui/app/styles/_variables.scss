@@ -1,0 +1,54 @@
+@import '~@angular/material/theming';
+
+/*
+*  Set of scss variables defined to maintain single source
+*/
+
+@include mat-core();
+// Palettes definition
+$meanTodo-primary: mat-palette($mat-blue, 900);
+$meanTodo-accent: mat-palette($mat-pink, A200, A100, A400);
+$meanTodo-warn: mat-palette($mat-red, 600);
+
+// meanTodo Theme
+$meanTodo-theme: mat-light-theme($meanTodo-primary, $meanTodo-accent, $meanTodo-warn);
+
+// positions to auto generate padding, margin
+$positions: ("left", "top", "right", "bottom", "all");
+
+$fontFamily: (Roboto, "Helvetica Neue", sans-serif);
+
+$fontSize: (
+    matCardTitle: 26px,
+    toastMessage: 14px,
+    deleteIcon: 18px,
+);
+
+$height: (
+  footer: 20%,
+  toolbar: 10%
+);
+
+@mixin shadow($shadow...) {
+  box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  -webkit-box-shadow: $shadow;
+}
+
+@mixin center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin right() {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+@mixin left() {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}

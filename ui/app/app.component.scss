@@ -1,0 +1,6 @@
+@import "./styles/variables";
+
+div {
+    height: 100%;
+    background: map_get($meanTodo-primary, 900);
+}

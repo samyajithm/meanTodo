@@ -1,0 +1,16 @@
+<div class="todo-main">
+  <mat-toolbar color="primary">
+    <span class="padding-left-10">{{'appName' | translate}}</span>
+  </mat-toolbar>
+  <mat-sidenav-container autosize>
+    <mat-sidenav #sidenav mode="side" opened>
+      <app-sidebar></app-sidebar>
+    </mat-sidenav>
+    <mat-sidenav-content [@fadeAnimation]="getRouterOutletState(routerOutlet)" role="main">
+      <main>
+        <app-loading></app-loading>
+        <router-outlet #routerOutlet="outlet"></router-outlet>
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

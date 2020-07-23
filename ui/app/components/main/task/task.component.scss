@@ -1,0 +1,11 @@
+.todo-main, main {
+  height: 100%;
+}
+
+.mat-toolbar {
+  height: 53px;
+}
+
+.mat-sidenav-container {
+  height: calc(100% - #{53px});
+}

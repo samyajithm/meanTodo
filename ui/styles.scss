@@ -1,0 +1,139 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+@import "app/styles/variables";
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+@include angular-material-theme($meanTodo-theme);
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.select {
+  cursor: pointer;
+}
+
+// Generate classes for padding left,right,top,bottom
+// @example padding-right-10px
+// $positions defined in ui/app/styles/_variables.scss
+
+@each $selection in $positions {
+  @for $i from 0 through 30 {
+    .padding-#{$selection}-#{$i}{
+      @if $selection == 'all' {
+        padding: #{$i}px !important;
+      } @else {
+        padding-#{$selection}: #{$i}px !important;
+      }
+    }
+  }
+}
+
+// Generate classes for margin left,right,top,bottom
+// @example margin-right-10px
+// $positions defined in ui/app/styles/_variables.scss
+
+@each $selection in $positions {
+  @for $i from 0 through 30 {
+    .margin-#{$selection}-#{$i} {
+      @if $selection == 'all' {
+        margin: #{$i}px !important;
+      } @else {
+        margin-#{$selection}: #{$i}px !important;
+      }
+    }
+  }
+}
+
+.mat-checkbox-frame {
+  border-color: mat-color($meanTodo-primary, default) !important;
+}
+
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+// Truncate the long sentence with ellipsis
+.ellipsis-truncate {
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mat-card-title {
+  font-size: map_get($fontSize, matCardTitle);
+}
+
+.confirm-dialog .mat-dialog-container {
+  border-radius: 5px !important;
+  padding: 0;
+  width: auto;
+}
+
+.mat-dialog-title {
+  padding: 12px 24px 12px 24px;
+  margin: 0 !important;
+  background-color: map_get($meanTodo-primary, 900);
+  color: white;;
+}
+
+.mat-dialog-content {
+  margin: 15px 0 !important;
+  max-width: 900px;
+}
+
+.mat-dialog-actions {
+  padding: 0 24px 24px 24px !important;
+  margin: 0 !important;
+  justify-content: flex-end;
+}
+
+.mat-sidenav {
+  background-color: map_get($mat-grey, 200);
+}
+
+.details-dialog .mat-dialog-container {
+  border-radius: 5px !important;
+  padding: 0;
+  width: 500px;
+}
+
+.text-warn {
+  color: map_get($meanTodo-warn, 600);
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+//toastr customization
+.toast-top-center.toast-container {
+  top: 10px;
+  .toast {
+    opacity: 0.8;
+    @include shadow(none);
+    font-family: "Open Sans", sans-serif;
+    &:hover {
+      opacity: 1;
+      @include shadow(none);
+    }
+    & .toast-close-button {
+      font-family: "Open Sans", sans-serif;
+      font-weight: 100;
+    }
+    .toast-title,
+    .toast-message {
+      font-size: map_get($fontSize, toastMessage);
+    }
+  }
+}

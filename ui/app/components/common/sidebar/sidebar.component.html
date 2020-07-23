@@ -1,0 +1,15 @@
+<div class="sidebar">
+  <mat-nav-list class="sidebar-list">
+    <a mat-list-item
+       matTooltip="{{item.translateKey | translate}}"
+       matTooltipPosition="right"
+       routerLinkActive="active"
+       [routerLink]="item.link"
+       *ngFor="let item of sidebar">
+
+      <mat-icon class="pull-left padding-left-5 padding-right-30"
+                fontSet="material-icons-outlined">{{item.iconName}}</mat-icon>
+      {{ item.translateKey | translate}}
+    </a>
+  </mat-nav-list>
+</div>

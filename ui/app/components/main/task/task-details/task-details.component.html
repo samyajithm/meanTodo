@@ -1,0 +1,61 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<form [formGroup]="taskDetailsForm" (submit)="closeDialog(data)">
+  <mat-dialog-content>
+    <span class="pull-left text-warn" *ngIf="checkOverDue(item.dueBy) && !data.isFieldDisabled">{{'task.overDue' | translate }}</span>
+
+    <mat-icon class="select pull-right" (click)="updateValue('important', false)"
+              *ngIf="item.important" color="primary">star
+    </mat-icon>
+    <mat-icon class="select pull-right" (click)="updateValue('important', true)"
+              *ngIf="!item.important" color="primary">star_border
+    </mat-icon>
+
+    <mat-checkbox [checked]="item.completed" (change)="$event ? updateValue('tempCompleted', $event.checked) : null"
+                  color="primary" class="pull-right padding-right-20 padding-top-2"
+                  [disabled]="data.isFieldDisabled"></mat-checkbox>
+
+    <mat-form-field class="task-name">
+      <input matInput placeholder="{{'task.taskNamePlaceholder' | translate }}" autofocus=""
+             formControlName="name"
+             required>
+      <mat-error> {{'task.emptyName' | translate }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>{{"task.createdOn" | translate }}</mat-label>
+      <input matInput [matDatepicker]="createdOn" formControlName="createdOn">
+      <mat-datepicker-toggle matSuffix [for]="createdOn"></mat-datepicker-toggle>
+      <mat-datepicker #createdOn></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="item.completed" class="pull-right">
+      <mat-label>{{"task.completedOn" | translate }}</mat-label>
+      <input matInput [matDatepicker]="completedOn" formControlName="completedOn">
+      <mat-datepicker-toggle matSuffix [for]="completedOn"></mat-datepicker-toggle>
+      <mat-datepicker #completedOn></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="!item.completed" class="pull-right">
+      <mat-label>{{"task.dueBy" | translate }}</mat-label>
+      <input matInput [matDatepicker]="dueBy" formControlName="dueBy">
+      <mat-datepicker-toggle matSuffix [for]="dueBy"></mat-datepicker-toggle>
+      <mat-datepicker #dueBy></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput
+                matTextareaAutosize
+                matAutosizeMinRows="3"
+                matAutosizeMaxRows="4"
+                placeholder="{{'task.taskDescPlaceholder' | translate }}"
+                formControlName="description"></textarea>
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button mat-button *ngIf="data.cancelButton" type="button"
+            (click)="closeDialog(false)">{{data.cancelButton}}</button>
+    <button mat-button *ngIf="data.confirmButton" type="submit" cdkFocusInitial color="primary"
+            [disabled]="(!taskDetailsForm?.value?.name || taskDetailsForm?.value?.name?.length <=0)">{{data.confirmButton}}</button>
+  </mat-dialog-actions>
+</form>

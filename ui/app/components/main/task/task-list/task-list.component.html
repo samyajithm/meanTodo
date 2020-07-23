@@ -1,0 +1,65 @@
+<mat-card class="list">
+  <mat-card-title>
+    <span> {{title}} </span>
+  </mat-card-title>
+
+  <mat-card-content>
+    <mat-form-field class="new-task" *ngIf="state != 'completed'">
+      <input matInput placeholder="{{'task.addTaskPlaceholder' | translate }}"
+             autofocus=""
+             [formControl]="newTaskInput"
+             (keyup.enter)="addNewTask()">
+    </mat-form-field>
+
+    <div cdkDropList 
+         *ngIf="tasks"
+         class="item-list" 
+         (cdkDropListDropped)="drop($event)">
+
+         <!-- [ngClass]="{'item-box': !item.hideItem}" -->
+
+      <div *ngFor="let item of tasks.tasks"
+            class="item-box"
+           [cdkDragDisabled]="item.completed"
+           cdkDrag>
+
+        <ng-container>
+          <div class="custom-placeholder" *cdkDragPlaceholder></div>
+
+          <mat-checkbox [checked]="item.completed" (change)="$event ? markAs(item, 'completed', $event.checked) : null"
+                        color="primary" class="padding-right-20"></mat-checkbox>
+
+          <span class="task-title select ellipsis-truncate padding-bottom-6"
+                [ngClass]="{'strike': item.completed, 'text-warn': (!item.completed && checkOverDue(item.dueBy))}"
+                (click)="editTask(item)">{{item.name}} </span>
+
+          <mat-icon class="select pull-right padding-right-30" (click)="markAs(item, 'important', false)"
+                    *ngIf="item.important" color="primary">star
+          </mat-icon>
+
+          <mat-icon class="select pull-right padding-right-30" (click)="markAs(item, 'important', true)"
+                    *ngIf="!item.important" color="primary">star_border
+          </mat-icon>
+
+          <mat-icon class="select pull-right padding-right-30" (click)="deleteTask(item, state)"
+                    color="warn">delete
+          </mat-icon>
+
+          <mat-icon class="drag-handle pull-right padding-right-30" cdkDragHandle>drag_indicator</mat-icon>
+        </ng-container>
+      </div>
+
+      <div class="item-box item-box-noRecord" *ngIf="tasks?.totalCount <= 0">
+        {{'task.noRecord' | translate:{'context': state} }}
+      </div>
+
+      <span [hidden]="!tasks || tasks?.totalCount<=0">
+        <mat-paginator [length]="tasks?.totalCount"
+                      [pageSize]="pageSize"
+                      [pageSizeOptions]="pageSizeOptions"
+                      (page)="onPageChange($event)">
+        </mat-paginator>
+      </span>
+    </div>
+  </mat-card-content>
+</mat-card>
