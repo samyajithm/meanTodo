@@ -40,12 +40,18 @@ A Simple MEAN.js Todo Application
   * Mark task as complete
   * Rearrange the order
   * Edit the task (By clicking on the name) 
-  * Data persists after refresh
   * Mark task as important
   * Schedule the task
   * State is maintained after the refresh.
   * Auth.guard to activate the route
   * Auth-interceptor to add bearer token to http requests
+  
+  * Sidebar links
+       
+       * Tasks :- Lists all the pending tasks along with important and scheduled
+       * Important :- Lists only pending tasks which are important
+       * Scheduled :- Lists only pending tasks which are scheduled
+       * Completed :- Lists all the completed tasks
   
 > ##### Backend
   * Todo Management modules - User, Tasks
