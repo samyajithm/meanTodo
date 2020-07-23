@@ -1,3 +1,32 @@
+@import "../../../../styles/variables";
+
+.form-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    vertical-align: middle;
+}
+
 mat-form-field {
     width: 100%;
+}
+
+.mat-card {
+    width: 25%;
+    margin: 15%;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    box-shadow: 0 1px 25px 4px rgba(0, 0, 0, 0.5);
+}
+
+.mat-card-title, a {
+    color: map_get($meanTodo-primary, 900);
+}
+
+a, span {
+    font-size: 12px;
+}
+
+.submit-button {
+    margin-top: 10px;
 }

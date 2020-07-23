@@ -1,6 +1,12 @@
-<div class="todo-main">
+<div class="todo-main" *ngIf="!loading">
   <mat-toolbar color="primary">
     <span class="padding-left-10">{{'appName' | translate}}</span>
+    <span class="spacer"></span>
+    <span class="user">{{loggedInUser?.firstName}}</span>
+    <i class="material-icons action-icons" [matMenuTriggerFor]="profile">keyboard_arrow_down</i>
+    <mat-menu #profile="matMenu">
+        <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
   </mat-toolbar>
   <mat-sidenav-container autosize>
     <mat-sidenav #sidenav mode="side" opened>
@@ -8,7 +14,6 @@
     </mat-sidenav>
     <mat-sidenav-content [@fadeAnimation]="getRouterOutletState(routerOutlet)" role="main">
       <main>
-        <app-loading></app-loading>
         <router-outlet #routerOutlet="outlet"></router-outlet>
       </main>
     </mat-sidenav-content>

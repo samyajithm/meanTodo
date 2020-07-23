@@ -1,4 +1,4 @@
-# meanRetails
+# meanTodo
 
 A Simple MEAN.js Todo Application 
 
@@ -75,7 +75,7 @@ A Simple MEAN.js Todo Application
         
   * All the operations can be done by using API from this [Postman collection](https://documenter.getpostman.com/view/11998783/T1DpBGvM) 
 
-  * Todo App can be viewed in Frontend Application [meanTodo](https://samyajithm.github.io/meanTodo/login) developed using Angular.
+  * Todo App can be viewed in Frontend Application [meanTodo](https://samyajithm.github.io/meanTodo/#/login) developed using Angular.
    
   > **Note**: Product is fetched by making actual api call to endpoint `/tasks` and the placing orders are just a mock in Frontend App
 
@@ -92,7 +92,7 @@ A Simple MEAN.js Todo Application
           server: "http://localhost:3000"
         };         
       ```  
-      * To connect to backend app hoisted in glitch online server (http://meanTodo.glitch.me/)
+      * To connect to backend app hoisted in glitch online server (https://meanTodo.glitch.me/)
       
       Sample server value in `environment` file
       ```typescript
@@ -144,7 +144,7 @@ A Simple MEAN.js Todo Application
 
 ## Demo 
 
-* [Demo](https://samyajithm.github.io/meanTodo/login)
+* [Demo](https://samyajithm.github.io/meanTodo/#/login)
 * [Postman Collection](https://documenter.getpostman.com/view/11998783/T1DpBGvM)
 
-  > **# Note:** [Demo](https://samyajithm.github.io/meanTodo/login) instance is connected to node.js app hoisted in (http://meanTodo.glitch.me) and MongoDb hoisted in MongoDB atlas.
+  > **# Note:** [Demo](https://samyajithm.github.io/meanTodo/#/login) instance is connected to node.js app hoisted in (https://meanTodo.glitch.me) and MongoDb hoisted in MongoDB atlas.

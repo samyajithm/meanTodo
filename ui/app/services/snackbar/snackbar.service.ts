@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
-import { snackBarData } from '../types/snackbar';
+import { snackBarData } from '../../types/snackbar';
 
 @Injectable({
   providedIn: 'root'
