@@ -1,0 +1,51 @@
+{
+  "appName": "To Do",
+  "sidebar": {
+    "tasks": "Tasks",
+    "important": "Important",
+    "scheduled": "Scheduled",
+    "completed": "Completed"
+  },
+  "task" : {
+    "addTaskPlaceholder": "Add a Task",
+    "taskNamePlaceholder": "Task Name",
+    "taskDescPlaceholder": "Description",
+    "noRecord": "No {{context}} task",
+    "emptyName": "Task Name cannot be empty",
+    "createdOn": "Created On",
+    "completedOn": "Completed On",
+    "dueBy": "Due By",
+    "overDue": "* Over Due"
+  },
+  "invalidForm" : {
+    "firstName": "Please enter your first name.",
+    "lastName": "Please enter your last name.",
+    "email": "Please enter a valid email.",
+    "password": "Password must be at least 6 characters long."
+  },
+  "loginForm": {
+    "accountExists": "Already have an account?",
+    "signup": "Sign up",
+    "login": "Login"
+  },
+  "snackBarError" : {
+    "fetchTask": "Error Fetching Tasks",
+    "addTask": "Error Adding Task",
+    "deleteTask": "Error Deleting Task",
+    "completeTask": "Couldn't complete the task",
+    "operation": "Operation Failed",
+    "signup": "User creation failed",
+    "login": "Authentication Failed"
+  },
+  "snackBarSuccess": {
+    "completeTask": "Task marked as complete",
+    "movedToPending": "Tasked moved to pending",
+    "deleteTask": "Task deleted successfully"
+  },
+  "notify": {
+    "success": "Success",
+    "error": "Error",
+    "warning": "Warning",
+    "info": "Info"
+  }
+}
